@@ -8,7 +8,7 @@ Requires macOS 14 Sonoma or later.
 
 ## Install
 
-1. Download the DMG from the latest release.
+1. Download the App ZIP from the latest release.
 2. Open it and drag StorageScope to your Applications folder.
 3. Launch StorageScope and follow the Full Disk Access setup.
 
