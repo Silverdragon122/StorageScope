@@ -1,21 +1,30 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Security fixes are made for the latest published version of StorageScope. Please check the latest release before reporting a problem found in an older build.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Report a vulnerability
 
-## Reporting a Vulnerability
+Use [GitHub's private vulnerability report](https://github.com/Silverdragon122/StorageScope/security/advisories/new) for security problems. Do not open a public issue or include exploit details in screenshots, discussions, or crash reports.
 
-Use this section to tell people how to report a vulnerability.
+Include:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- The affected StorageScope and macOS versions
+- The security impact
+- The smallest reliable set of reproduction steps
+- Whether cleanup changed, moved, or removed an unexpected file
+- Any relevant path with usernames and private file names replaced
+- Logs or proof-of-concept material needed to confirm the problem
+
+Security reports are appropriate for problems such as:
+
+- Cleanup reaching a location outside the item selected by the user
+- Authorization or privilege-boundary bypasses
+- Symbolic-link, path-replacement, or filesystem-identity issues
+- Exposure of private file information
+- Unsafe handling of cleanup journals or recovery data
+
+Use the regular [bug report](https://github.com/Silverdragon122/StorageScope/issues/new?template=bug_report.yml) for crashes, incorrect sizes, interface problems, and other issues without a security impact.
+
+Please allow time to investigate and publish a fix before sharing vulnerability details publicly.
