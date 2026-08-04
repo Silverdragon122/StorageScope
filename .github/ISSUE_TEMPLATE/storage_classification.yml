@@ -1,0 +1,99 @@
+name: Incorrect storage classification
+description: Report an item that StorageScope handles too broadly, too narrowly, or inaccurately.
+title: "[Classification] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Classification reports help keep cleanup boundaries conservative. Do not paste private file names or complete personal paths.
+
+  - type: checkboxes
+    id: existing-issue
+    attributes:
+      label: Existing issue
+      options:
+        - label: I searched the existing issues for this item or location.
+          required: true
+
+  - type: input
+    id: item-name
+    attributes:
+      label: Item name
+      description: Use the name shown in StorageScope.
+      placeholder: Xcode Derived Data
+    validations:
+      required: true
+
+  - type: dropdown
+    id: current-classification
+    attributes:
+      label: Current classification
+      options:
+        - Ready to Remove
+        - Review Required
+        - Managed Elsewhere
+        - Item is missing from results
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: concern
+    attributes:
+      label: What is wrong?
+      options:
+        - The item should be more protected
+        - The item is safe to remove but cannot be selected
+        - The description or cleanup consequence is inaccurate
+        - The reported size or location is inaccurate
+        - The item is missing or appears more than once
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Give a general path with private components replaced, such as `/Users/<username>/Library/Caches/AppName`.
+      render: shell
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Why should it be handled differently?
+      description: Explain what the location contains and what could happen when it is removed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Documentation or references
+      description: Link to vendor documentation or another reliable source when available.
+
+  - type: input
+    id: app-version
+    attributes:
+      label: StorageScope version
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "macOS 15.6"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private file names, usernames, and personal file contents from this report.
+          required: true

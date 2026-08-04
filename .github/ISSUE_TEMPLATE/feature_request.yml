@@ -1,0 +1,62 @@
+name: Feature request
+description: Suggest a focused improvement or a storage location StorageScope should cover.
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: checkboxes
+    id: existing-request
+    attributes:
+      label: Existing request
+      options:
+        - label: I searched the existing issues for this request.
+          required: true
+
+  - type: dropdown
+    id: request-kind
+    attributes:
+      label: Request type
+      options:
+        - Add a storage location
+        - Improve scanning or results
+        - Improve cleanup or recovery
+        - Improve accessibility or keyboard use
+        - Improve another part of the app
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the current task or limitation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested change
+      description: Describe the behavior you would expect in StorageScope.
+    validations:
+      required: true
+
+  - type: textarea
+    id: storage-details
+    attributes:
+      label: Storage-location details
+      description: For a new location, include a privacy-safe path, what it contains, who manages it, and reliable documentation.
+
+  - type: textarea
+    id: safety
+    attributes:
+      label: Cleanup and data-safety considerations
+      description: Note whether the data can be recreated, whether an app must be closed, and what a user could lose.
+
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private file names, usernames, and personal file contents from this request.
+          required: true

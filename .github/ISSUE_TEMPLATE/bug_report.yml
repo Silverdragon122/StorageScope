@@ -1,0 +1,103 @@
+name: Bug report
+description: Report a problem with StorageScope.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include private file names, usernames, or the contents of personal files. Replace private parts of paths with `<username>` or another clear placeholder.
+
+  - type: checkboxes
+    id: existing-issue
+    attributes:
+      label: Existing issue
+      options:
+        - label: I searched the existing issues for this problem.
+          required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: StorageScope version
+      description: Find this in StorageScope > About StorageScope.
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "macOS 15.6"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did the problem happen?
+      options:
+        - Launch or Full Disk Access setup
+        - Scanning
+        - Results, search, or selection
+        - Cleanup review
+        - Cleanup
+        - Settings
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the exact error shown by StorageScope when there is one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open StorageScope
+        2. Start a scan
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: unexpected-file-change
+    attributes:
+      label: Did any file change unexpectedly?
+      description: Stop cleanup and choose Yes if a file was removed, moved, or changed without the result clearly describing it.
+      options:
+        - "No"
+        - "Yes"
+        - Unsure
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: supporting-information
+    attributes:
+      label: Supporting information
+      description: Add screenshots or logs if they help. Remove personal information first.
+
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private file names, usernames, and personal file contents from this report.
+          required: true

@@ -1,0 +1,261 @@
+import Foundation
+
+extension CleanupCatalog {
+    static let creativeRules: [CleanupRule] = [
+        rule(
+            "final-cut-render-files",
+            .creative,
+            "Final Cut render files",
+            "Render files",
+            "Generated frames stored inside a Final Cut library.",
+            "Final Cut will render the selected material again if it is needed.",
+            .reclaimable,
+            "Movies",
+            .matchingDirectories(
+                names: ["Render Files"],
+                extensions: [],
+                requiredAncestorExtensions: ["fcpbundle"],
+                maximumDepth: 8
+            ),
+            .enclosingPackageWithSuffix("render files"),
+            .deleteContents,
+            creativeBundleIDs
+        ),
+        rule(
+            "final-cut-analysis-files",
+            .creative,
+            "Final Cut analysis files",
+            "Analysis files",
+            "Generated stabilization, tracking, and analysis data.",
+            "Final Cut will analyze the selected material again if it is needed.",
+            .reclaimable,
+            "Movies",
+            .matchingDirectories(
+                names: ["Analysis Files"],
+                extensions: [],
+                requiredAncestorExtensions: ["fcpbundle"],
+                maximumDepth: 8
+            ),
+            .enclosingPackageWithSuffix("analysis files"),
+            .deleteContents,
+            creativeBundleIDs
+        ),
+        rule(
+            "final-cut-transcoded-media",
+            .creative,
+            "Final Cut optimized and proxy media",
+            "Generated media",
+            "Optimized or proxy media stored inside a Final Cut library.",
+            "Final Cut must generate the selected media again before it can be used.",
+            .reviewRequired,
+            "Movies",
+            .matchingDirectories(
+                names: ["Transcoded Media"],
+                extensions: [],
+                requiredAncestorExtensions: ["fcpbundle"],
+                maximumDepth: 8
+            ),
+            .enclosingPackageWithSuffix("generated media"),
+            .deleteContents,
+            creativeBundleIDs
+        ),
+        rule(
+            "imovie-render-files",
+            .creative,
+            "iMovie render files",
+            "Render files",
+            "Generated frames stored inside an iMovie library.",
+            "iMovie will render the selected material again if it is needed.",
+            .reclaimable,
+            "Movies",
+            .matchingDirectories(
+                names: ["Render Files"],
+                extensions: [],
+                requiredAncestorExtensions: ["imovielibrary"],
+                maximumDepth: 8
+            ),
+            .enclosingPackageWithSuffix("render files"),
+            .deleteContents,
+            ["com.apple.iMovieApp"]
+        ),
+        rule(
+            "final-cut-backups",
+            .backups,
+            "Final Cut backups",
+            "Library backup",
+            "Automatic copies of Final Cut library databases.",
+            "The selected backup can no longer restore an earlier library state.",
+            .reviewRequired,
+            "Movies/Final Cut Backups",
+            .children,
+            .childWithSuffix("backups"),
+            .deleteItem,
+            ["com.apple.FinalCut"]
+        ),
+        rule(
+            "adobe-media-cache-files",
+            .creative,
+            "Adobe media cache",
+            "Media cache",
+            "Generated audio and video cache files used by Adobe apps.",
+            "Adobe apps will recreate the selected files when needed.",
+            .reclaimable,
+            "Library/Application Support/Adobe/Common/Media Cache Files",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.adobe.PremierePro", "com.adobe.AfterEffects"]
+        ),
+        rule(
+            "adobe-media-cache-database",
+            .creative,
+            "Adobe media cache database",
+            "Media cache database",
+            "Indexes for generated Adobe media cache files.",
+            "Adobe apps will rebuild the selected indexes.",
+            .reclaimable,
+            "Library/Application Support/Adobe/Common/Media Cache",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.adobe.PremierePro", "com.adobe.AfterEffects"]
+        ),
+        rule(
+            "adobe-cache",
+            .creative,
+            "Adobe caches",
+            "Adobe cache",
+            "Temporary and generated files created by Adobe apps.",
+            "The owning Adobe app will recreate the selected files when needed.",
+            .reclaimable,
+            "Library/Caches/Adobe",
+            .children,
+            .child,
+            .deleteItem
+        ),
+        rule(
+            "davinci-cache",
+            .creative,
+            "DaVinci Resolve render cache",
+            "Render cache",
+            "Generated playback and render cache files.",
+            "DaVinci Resolve will render the selected material again if needed.",
+            .reviewRequired,
+            "Movies/CacheClip",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.blackmagic-design.DaVinciResolve"]
+        ),
+        rule(
+            "davinci-user-cache",
+            .creative,
+            "DaVinci Resolve cache",
+            "Resolve cache",
+            "Temporary files retained in the standard user cache location.",
+            "DaVinci Resolve will recreate the selected files when needed.",
+            .reclaimable,
+            "Library/Caches/Blackmagic Design/DaVinci Resolve",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.blackmagic-design.DaVinciResolve"]
+        ),
+        rule(
+            "blender-cache",
+            .creative,
+            "Blender cache",
+            "Blender cache",
+            "Temporary files and generated previews retained by Blender.",
+            "Blender will recreate the selected files when needed.",
+            .reclaimable,
+            "Library/Caches/Blender",
+            .children,
+            .child,
+            .deleteItem,
+            ["org.blenderfoundation.blender"]
+        ),
+        rule(
+            "motion-cache",
+            .creative,
+            "Motion cache",
+            "Motion cache",
+            "Temporary and rendered files retained by Motion.",
+            "Motion will recreate the selected files when needed.",
+            .reclaimable,
+            "Library/Caches/com.apple.motionapp",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.apple.motionapp"]
+        ),
+        rule(
+            "unreal-derived-data",
+            .creative,
+            "Unreal derived data",
+            "Unreal cache",
+            "Generated shaders and asset formats stored in Unreal's shared cache.",
+            "Unreal Engine will regenerate the selected data when needed.",
+            .reclaimable,
+            "Library/Application Support/Epic/UnrealEngine/Common/DerivedDataCache",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.epicgames.UnrealEditor"]
+        ),
+        rule(
+            "unity-cache",
+            .creative,
+            "Unity asset cache",
+            "Unity cache",
+            "Downloaded and generated assets retained by Unity.",
+            "Unity may need to import or download the selected data again.",
+            .reviewRequired,
+            "Library/Unity/cache",
+            .children,
+            .child,
+            .deleteItem,
+            ["com.unity3d.UnityEditor5.x"]
+        ),
+        readOnlyRule(
+            "logic-user-content",
+            .largeAppData,
+            "Music creation projects and content",
+            "User presets, samples, projects, and other music creation data.",
+            "Manage this content from Logic Pro, GarageBand, or MainStage.",
+            .home(relativePath: "Music/Audio Music Apps"),
+            .children,
+            .child
+        ),
+        readOnlyRule(
+            "logic-system-content",
+            .largeAppData,
+            "Logic sound library",
+            "Downloaded instruments, samples, and other Apple music content.",
+            "Relocate or remove the sound library from Logic Pro.",
+            .absolute(path: "/Library/Application Support/Logic"),
+            .children,
+            .child
+        ),
+        readOnlyRule(
+            "garageband-system-content",
+            .largeAppData,
+            "GarageBand sound library",
+            "Downloaded instruments, lessons, and other GarageBand content.",
+            "Manage this content from GarageBand or macOS Storage settings.",
+            .absolute(path: "/Library/Application Support/GarageBand"),
+            .children,
+            .child
+        ),
+        readOnlyRule(
+            "apple-loops-content",
+            .largeAppData,
+            "Apple Loops",
+            "Downloaded loops used by Apple music creation apps.",
+            "Manage this content from the music creation app that installed it.",
+            .absolute(path: "/Library/Audio/Apple Loops"),
+            .children,
+            .child
+        )
+    ]
+}

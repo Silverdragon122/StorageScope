@@ -1,0 +1,54 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+*.moved-aside
+*.xccheckout
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Generated archives and debug artifacts
+*.dSYM
+*.dSYM.zip
+*.ipa
+*.xcarchive
+*.xcresult
+*.profraw
+*.profdata
+/AuthorizationShim.plist
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+Config/Local.xcconfig
+Config/Secrets.xcconfig
+*.cer
+*.key
+*.mobileprovision
+*.p12
+*.pem
+
+# Logs and local scratch files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.tmp/
+tmp/
+
+# IDE metadata
+.idea/
+.vscode/

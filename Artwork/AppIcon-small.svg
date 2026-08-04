@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Optical-size master for the 16, 32, and 64 px raster assets. -->
+  <rect x="96" y="72" width="832" height="832" rx="184" fill="#174452"/>
+  <rect x="210" y="206" width="604" height="604" rx="140" fill="#0A2933"/>
+
+  <rect x="260" y="256" width="296" height="296" rx="72" fill="#6CC8BC"/>
+  <rect x="580" y="256" width="184" height="136" rx="50" fill="#E5A04C"/>
+  <rect x="580" y="416" width="184" height="136" rx="50" fill="#A4B5BC"/>
+  <rect x="260" y="576" width="154" height="184" rx="54" fill="#4A959D"/>
+  <rect x="438" y="576" width="198" height="184" rx="54" fill="#30717D"/>
+  <rect x="660" y="576" width="104" height="184" rx="46" fill="#061D25"/>
+</svg>

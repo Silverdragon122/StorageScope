@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!--
+    A storage treemap with five classified regions and one intentionally empty
+    cell. Large shapes and consistent spacing keep the mark legible at Dock,
+    Finder, and Spotlight sizes without decorative detail.
+  -->
+  <defs>
+    <filter id="iconShadow" x="20" y="20" width="984" height="984" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#06151B" flood-opacity="0.47"/>
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#06151B" flood-opacity="0.28"/>
+    </filter>
+    <filter id="panelShadow" x="150" y="145" width="725" height="720" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#041116" flood-opacity="0.48"/>
+    </filter>
+    <filter id="tileShadow" x="220" y="230" width="585" height="570" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#020C10" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+
+  <rect x="96" y="72" width="832" height="832" rx="184" fill="#143D49" filter="url(#iconShadow)"/>
+
+  <g filter="url(#panelShadow)">
+    <rect x="224" y="242" width="576" height="560" rx="128" fill="#061D25" opacity="0.72"/>
+    <rect x="224" y="220" width="576" height="560" rx="128" fill="#0D303A"/>
+  </g>
+
+  <g filter="url(#tileShadow)">
+    <rect x="270" y="266" width="286" height="286" rx="68" fill="#68C2B7"/>
+    <rect x="578" y="266" width="176" height="132" rx="48" fill="#E19A47"/>
+    <rect x="578" y="420" width="176" height="132" rx="48" fill="#9EAFB7"/>
+    <rect x="270" y="574" width="148" height="160" rx="52" fill="#438B94"/>
+    <rect x="440" y="574" width="192" height="160" rx="52" fill="#306E7A"/>
+  </g>
+
+  <rect x="654" y="574" width="100" height="160" rx="44" fill="#071F28"/>
+</svg>
